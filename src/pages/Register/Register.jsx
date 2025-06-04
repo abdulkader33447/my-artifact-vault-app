@@ -1,12 +1,14 @@
 import Lottie from "lottie-react";
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import lottieRegister from "../../assets/lotties/lottie-register.json";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   // password REGEX
   // const isValidPassword = (password) => {
@@ -50,9 +52,18 @@ const Register = () => {
           showConfirmButton: false,
           timer: 2500,
         });
+        navigate("/");
         console.log(result);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        const errorMessage = error.message;
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: errorMessage || "Something went wrong. Please try again.",
+          timer: 8000,
+        });
+      });
   };
   return (
     <div className="">

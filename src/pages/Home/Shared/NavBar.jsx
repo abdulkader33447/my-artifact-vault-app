@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../../context/AuthContext";
 import { auth } from "../../../firebase/firebase.init";
 import Swal from "sweetalert2";
@@ -12,9 +12,12 @@ const NavBar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      {/* <li>
-        <NavLink to="/register">Register</NavLink>
-      </li> */}
+      <li>
+        <NavLink to="/allArtifacts">All Artifacts</NavLink>
+      </li>
+      <li>
+        <NavLink to="/addArtifacts">Add Artifacts</NavLink>
+      </li>
     </>
   );
 
@@ -39,10 +42,10 @@ const NavBar = () => {
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className=" lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-7 w-7 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -63,7 +66,9 @@ const NavBar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Link to="/" className="mr-2 text-xl">
+            Artifacts
+          </Link>
           {/* theme toggle */}
           <label className="toggle text-base-content">
             <input type="checkbox" value="dark" className="theme-controller" />
@@ -120,14 +125,60 @@ const NavBar = () => {
           {user ? (
             <>
               {user?.photoURL ? (
-                <img
-                  className="size-9 rounded-full mr-2"
-                  src={user?.photoURL}
-                  alt="user photo"
-                />
+                <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="cursor-pointer m-1">
+                    <img
+                      className="size-9 rounded-full mr-2"
+                      src={user?.photoURL}
+                      alt="user photo"
+                    />
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm"
+                  >
+                    <li>
+                      <p>{user.displayName}</p>
+                    </li>
+                    <li>
+                      <NavLink to="/myArtifacts">My Artifacts</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/likedArtifacts">Liked Artifacts</NavLink>
+                    </li>
+                    <li>
+                      <button onClick={handleLogOut} className="btn">
+                        LogOut
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               ) : (
                 <>
-                  <FaRegUser className="size-8  mr-2" />
+                  <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="cursor-pointer m-1">
+                    <FaRegUser className="size-8  mr-2" />
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm"
+                  >
+                    <li>
+                      <p>{user.displayName}</p>
+                    </li>
+                    <li>
+                      <NavLink to="/myArtifacts">My Artifacts</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/likedArtifacts">Liked Artifacts</NavLink>
+                    </li>
+                    <li>
+                      <button onClick={handleLogOut} className="btn">
+                        LogOut
+                      </button>
+                    </li>
+                  </ul>
+                </div>
                 </>
               )}
             </>

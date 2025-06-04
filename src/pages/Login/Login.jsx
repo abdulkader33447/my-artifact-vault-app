@@ -1,33 +1,38 @@
 import React, { useContext } from "react";
 import LottieLogin from "../../assets/lotties/lotti-json.json";
 import Lottie from "lottie-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { logInUser, googleLogin } = useContext(AuthContext);
 
-  const handleGoogleLogin = () => {
-    googleLogin()
-      .then((result) => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Log In Successful",
-          showConfirmButton: false,
-          timer: 2500,
-        });
-        console.log(result);
-      })
-      .catch((error) => console.log(error));
-  };
+  const navigate = useNavigate();
+
+  // password REGEX
+  // const isValidPassword = (password) => {
+  //   const upperCase = /[A-Z]/.test(password);
+  //   const lowerCase = /[a-z]/.test(password);
+  //   const isLengthValid = password.length >= 6;
+  //   return upperCase && lowerCase && isLengthValid;
+  // };
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log("from signin page", email, password);
+
+    // if (!isValidPassword(password)) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Invalid Password",
+    //     text: "Password must have at least 6 characters, one uppercase and one lowercase letter.!",
+    //   });
+    //   return;
+    // }
 
     logInUser(email, password)
       .then((result) => {
@@ -38,13 +43,36 @@ const Login = () => {
           showConfirmButton: false,
           timer: 2500,
         });
+        navigate("/");
         console.log(result);
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        // console.log( errorMessage);
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: "Invalid email or password",
+          timer: 8000,
+        });
       });
+  };
+
+  const handleGoogleLogin = (e) => {
+    e.preventDefault();
+    googleLogin()
+      .then((result) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Log In Successful",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        navigate("/");
+        console.log(result);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -83,6 +111,7 @@ const Login = () => {
               </button>
               {/* Google */}
               <button
+                type="button"
                 onClick={handleGoogleLogin}
                 className="btn bg-white text-black border-[#e5e5e5]"
               >
