@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../../../context/AuthContext";
 import { auth } from "../../../firebase/firebase.init";
 import Swal from "sweetalert2";
+import { FaRegUser } from "react-icons/fa";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -118,11 +119,17 @@ const NavBar = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <img
-                className="size-9 rounded-full mr-2"
-                src={user.photoURL}
-                alt="user photo"
-              />
+              {user?.photoURL ? (
+                <img
+                  className="size-9 rounded-full mr-2"
+                  src={user?.photoURL}
+                  alt="user photo"
+                />
+              ) : (
+                <>
+                  <FaRegUser className="size-8  mr-2" />
+                </>
+              )}
             </>
           ) : (
             <></>

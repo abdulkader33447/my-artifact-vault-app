@@ -8,20 +8,38 @@ import Swal from "sweetalert2";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
 
+  // password REGEX
+  // const isValidPassword = (password) => {
+  //   const upperCase = /[A-Z]/.test(password);
+  //   const lowerCase = /[a-z]/.test(password);
+  //   const isLengthValid = password.length >= 6;
+  //   return upperCase && lowerCase && isLengthValid;
+  // };
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
-    const formData = new FormData(form);
 
-    const { email, password, ...restFormData } = Object.fromEntries(
-      formData.entries()
-    );
-    // const name = form.name.value;
-    // const photoURL = form.photoURL.value;
-    // const email = form.email.value;
-    // const password=form.password.value;
+    // const formData = new FormData(form);
+    // const { email, password, ...restFormData } = Object.fromEntries(
+    //   formData.entries()
+    // );
 
-    console.log("form submitted :", email, password, restFormData);
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log("form submitted :", name, photoURL, email, password);
+
+    // if (!isValidPassword(password)) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Invalid Password",
+    //     text: "Password must have at least 6 characters, one uppercase and one lowercase letter.!",
+    //   });
+    //   return;
+    // }
 
     createUser(email, password)
       .then((result) => {
