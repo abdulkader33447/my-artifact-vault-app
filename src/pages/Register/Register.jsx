@@ -1,15 +1,58 @@
-import React from "react";
+import Lottie from "lottie-react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import lottieRegister from "../../assets/lotties/lottie-register.json";
+import { AuthContext } from "../../context/AuthContext";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const { email, password, ...restFormData } = Object.fromEntries(
+      formData.entries()
+    );
+    // const name = form.name.value;
+    // const photoURL = form.photoURL.value;
+    // const email = form.email.value;
+    // const password=form.password.value;
+
+    console.log("form submitted :", email, password, restFormData);
+
+    createUser(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Registration Successful",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+        console.log(result);
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="">
-      <div className="hero bg-base-200 min-h-[calc(100vh-284px)]">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className=" bg-base-200 min-h-[calc(100vh-284px)]">
+        <div className="hero-content flex-col lg:flex-row-reverse w-full mx-auto">
+          <div>
+            <Lottie
+              style={{ width: "300px" }}
+              animationData={lottieRegister}
+              loop={true}
+            />
+          </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
-              <fieldset className="fieldset">
-                <h1 className="text-5xl font-bold">Register now!</h1>
+              <form onSubmit={handleRegister} className="fieldset">
+                <h1 className="sm:text-5xl text-3xl font-bold">
+                  Register now!
+                </h1>
 
                 <label className="label">Name</label>
                 <input
@@ -22,7 +65,7 @@ const Register = () => {
                 <label className="label">photoURL </label>
                 <input
                   type="url"
-                  name="photoURL "
+                  name="photoURL"
                   className="input"
                   placeholder="photoURL "
                 />
@@ -45,9 +88,14 @@ const Register = () => {
                 {/* <div>
                   <a className="link link-hover">Forgot password?</a>
                 </div> */}
-                <button className="btn btn-neutral mt-4">Login</button>
-                <p>Already have an account? please <Link to="/login" className="text-blue-600 underline">Login</Link></p>
-              </fieldset>
+                <button className="btn btn-neutral mt-4">Register now</button>
+                <p>
+                  Already have an account? please{" "}
+                  <Link to="/login" className="text-blue-600 underline">
+                    Login
+                  </Link>
+                </p>
+              </form>
             </div>
           </div>
         </div>
