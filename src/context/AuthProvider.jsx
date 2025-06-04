@@ -3,10 +3,14 @@ import { AuthContext } from "./AuthContext";
 import { createUserWithEmailAndPassword } from "firebase/auth/cordova";
 import { auth } from "../firebase/firebase.init";
 import {
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -20,6 +24,11 @@ const AuthProvider = ({ children }) => {
   const logInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const logOut = () => {
@@ -41,6 +50,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     createUser,
     logInUser,
+    googleLogin,
     logOut,
     user,
     loading,

@@ -11,9 +11,9 @@ const NavBar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/register">Register</NavLink>
-      </li>
+      </li> */}
     </>
   );
 
@@ -114,10 +114,24 @@ const NavBar = () => {
             {user ? <></> : <></>}
           </ul>
         </div>
+
         <div className="navbar-end">
           {user ? (
             <>
-              <button onClick={handleLogOut} className="btn">LogOut</button>
+              <img
+                className="size-9 rounded-full mr-2"
+                src={user.photoURL}
+                alt="user photo"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {user ? (
+            <>
+              <button onClick={handleLogOut} className="btn">
+                LogOut
+              </button>
             </>
           ) : (
             <>
