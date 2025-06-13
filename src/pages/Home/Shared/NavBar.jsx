@@ -7,6 +7,7 @@ import { FaRegUser } from "react-icons/fa";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  // console.log(user.photoURL);
   const links = (
     <>
       <li>
@@ -15,9 +16,11 @@ const NavBar = () => {
       <li>
         <NavLink to="/allArtifacts">All Artifacts</NavLink>
       </li>
-      <li>
+      {
+        user ? <li>
         <NavLink to="/addArtifacts">Add Artifacts</NavLink>
-      </li>
+      </li>:<></>
+      }
     </>
   );
 
@@ -126,7 +129,11 @@ const NavBar = () => {
             <>
               {user?.photoURL ? (
                 <div className="dropdown dropdown-end">
-                  <div tabIndex={0} role="button" className="cursor-pointer m-1">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="cursor-pointer m-1"
+                  >
                     <img
                       className="size-9 rounded-full mr-2"
                       src={user?.photoURL}
@@ -156,29 +163,33 @@ const NavBar = () => {
               ) : (
                 <>
                   <div className="dropdown dropdown-end">
-                  <div tabIndex={0} role="button" className="cursor-pointer m-1">
-                    <FaRegUser className="size-8  mr-2" />
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="cursor-pointer m-1"
+                    >
+                      <FaRegUser className="size-8  mr-2" />
+                    </div>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm"
+                    >
+                      <li>
+                        <p>{user.displayName}</p>
+                      </li>
+                      <li>
+                        <NavLink to="/myArtifacts">My Artifacts</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/likedArtifacts">Liked Artifacts</NavLink>
+                      </li>
+                      <li>
+                        <button onClick={handleLogOut} className="btn">
+                          LogOut
+                        </button>
+                      </li>
+                    </ul>
                   </div>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm"
-                  >
-                    <li>
-                      <p>{user.displayName}</p>
-                    </li>
-                    <li>
-                      <NavLink to="/myArtifacts">My Artifacts</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/likedArtifacts">Liked Artifacts</NavLink>
-                    </li>
-                    <li>
-                      <button onClick={handleLogOut} className="btn">
-                        LogOut
-                      </button>
-                    </li>
-                  </ul>
-                </div>
                 </>
               )}
             </>

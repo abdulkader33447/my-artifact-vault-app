@@ -36,23 +36,16 @@ const PopularBooks = () => {
       <div className="">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5 justify-items-center">
           <div className="card bg-base-100 sm:w-96 shadow-sm">
-            <motion.figure
+            <figure
               className="px-2 pt-2"
-              whileHover={{
-                scale: [null, 1.1, 1.6],
-                transition: {
-                  duration: 0.5,
-                  times: [0, 0.6, 1],
-                  ease: ["easeInOut", "easeOut"],
-                },
-              }}
+             
             >
               <img
                 src="https://i.ibb.co/1fhqYmx3/a-history-of-the-world-in-100-objects-original-imafy3efp4ucjbsa.webp"
                 alt="Shoes"
                 className="rounded-none h-70"
               />
-            </motion.figure>
+            </figure>
             <div className="card-body text-start  p-2">
               <h2 className="card-title">
                 A History of the World in 100 Objects{" "}
@@ -81,23 +74,16 @@ const PopularBooks = () => {
 
           {/* The Archaeology of Knowledge */}
           <div className="card bg-base-100 sm:w-96 shadow-sm">
-            <motion.figure
+            <figure
               className="px-2 pt-2"
-              whileHover={{
-                scale: [null, 1.1, 1.6],
-                transition: {
-                  duration: 0.5,
-                  times: [0, 0.6, 1],
-                  ease: ["easeInOut", "easeOut"],
-                },
-              }}
+              
             >
               <img
                 src="https://i.ibb.co/4nd12Ctr/9780203604168.jpg"
                 alt="Shoes"
                 className="rounded-none h-70"
               />
-            </motion.figure>
+            </figure>
             <div className="card-body text-start  p-2">
               <h2 className="card-title">The Archaeology of Knowledge </h2>
               <h1 className="font-semibold">
@@ -123,23 +109,17 @@ const PopularBooks = () => {
 
           {/*  Lost Cities, Ancient Tombs */}
           <div className="card bg-base-100 sm:w-96 shadow-sm">
-            <motion.figure
+            <figure
               className="px-2 pt-2"
-              whileHover={{
-                scale: [null, 1.1, 1.6],
-                transition: {
-                  duration: 0.5,
-                  times: [0, 0.6, 1],
-                  ease: ["easeInOut", "easeOut"],
-                },
-              }}
+              
             >
               <img
                 src="https://i.ibb.co/W4fZtrTZ/57355940.jpg"
                 alt="Shoes"
                 className="rounded-none h-70"
+                
               />
-            </motion.figure>
+            </figure>
             <div className="card-body text-start  p-2">
               <h2 className="card-title">Lost Cities, Ancient Tombs </h2>
               <h1 className="font-semibold">

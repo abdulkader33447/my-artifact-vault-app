@@ -152,7 +152,7 @@ const HistoricalTimeline = () => {
         {/*  Babylonian Civilization */}
         <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
         initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.7,
             scale: { type: "spring",duration: 1,  },
