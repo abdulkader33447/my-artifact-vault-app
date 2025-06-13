@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react"
 
 const HistoricalTimeline = () => {
   return (
@@ -8,7 +9,14 @@ const HistoricalTimeline = () => {
       </h1>
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 sm:w-full w-11/12 mx-auto space-y-2 ">
         {/* Mesopotamian Civilization */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86  shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86  shadow-sm" 
+        initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}
+        >
           <figure className="h-70">
             <img
               className=" w-full"
@@ -34,10 +42,17 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Ancient Egyptian Civilization */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86  shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86  shadow-sm"
+        initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}
+        >
           <figure className="h-70">
             <img
               className="w-full"
@@ -63,10 +78,17 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Indus Valley Civilization */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
+        initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}
+        >
           <figure className="h-70">
             <img
               className="w-full"
@@ -92,10 +114,17 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Ancient Chinese Civilization */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
+        initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}
+        >
           <figure className="h-70">
             <img
               className="w-full"
@@ -118,10 +147,17 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/*  Babylonian Civilization */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
+        initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}
+        >
           <figure className="h-70">
             <img
               className="w-full"
@@ -144,10 +180,17 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Maurya Empire */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
+        
+        initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}>
           <figure className="h-70">
             <img
               className="w-full"
@@ -170,10 +213,17 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Ancient Greek Civilization */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
+        initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}
+        >
           <figure className="h-70">
             <img
               className="w-full"
@@ -196,10 +246,17 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Ancient Japanese Civilization */}
-        <div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm">
+        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
+        initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring",duration: 1,  },
+          }}
+        >
           <figure className="h-70">
             <img
               className="w-full"
@@ -222,7 +279,7 @@ const HistoricalTimeline = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

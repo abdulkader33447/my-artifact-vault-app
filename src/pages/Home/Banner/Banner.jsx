@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GoDotFill } from "react-icons/go";
+import { motion } from "motion/react";
 
 const Banner = () => {
   const [activeItem, setActiveItem] = useState("item1");
@@ -7,14 +8,30 @@ const Banner = () => {
   return (
     <div className="sm:p-0 p-1 my-15">
       <div className="space-y-5  mb-5">
-        <h1 className="sm:text-5xl text-3xl font-bold text-center">
+        <motion.h1
+          className="sm:text-5xl text-3xl font-bold text-center"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring", duration: 1 },
+          }}
+        >
           Discover the Past, Preserve the Legacy
-        </h1>
-        <p className="sm:w-[550px] mx-auto text-center sm:text-xl px-1">
+        </motion.h1>
+        <motion.p
+          className="sm:w-[550px] mx-auto text-center sm:text-xl px-1"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            scale: { type: "spring", duration: 1 },
+          }}
+        >
           Explore, collect, and safeguard history's most valuable treasures.
           ArtifactsVault is your gateway to discovering ancient relics, tracking
           their stories, and preserving cultural heritage in the digital age.
-        </p>
+        </motion.p>
       </div>
       <div className="carousel w-full sm:h-[550px] rounded-2xl">
         <div id="item1" className="carousel-item w-full">
