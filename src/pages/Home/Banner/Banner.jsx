@@ -5,8 +5,8 @@ const Banner = () => {
   const [activeItem, setActiveItem] = useState("item1");
 
   return (
-    <div className="sm:p-0 p-1">
-      <div className="space-y-5 mt-10 mb-5">
+    <div className="sm:p-0 p-1 my-15">
+      <div className="space-y-5  mb-5">
         <h1 className="sm:text-5xl text-3xl font-bold text-center">
           Discover the Past, Preserve the Legacy
         </h1>
