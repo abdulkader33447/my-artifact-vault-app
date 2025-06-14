@@ -10,6 +10,7 @@ import MyArtifacts from "../pages/MyArtifacts/MyArtifacts";
 import UpdateArtifact from "../pages/UpdateArtifact/UpdateArtifact";
 import PrivateRoute from "../routes/PrivateRoute";
 import LikedArtifacts from "../pages/LikedArtifacts/LikedArtifacts";
+import Loading from "../pages/Home/Shared/Loading";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/allArtifacts",
+        loader: () => fetch("http://localhost:3000/artifact"),
+        hydrateFallbackElement: <Loading />,
         element: <AllArtifacts />,
       },
       {

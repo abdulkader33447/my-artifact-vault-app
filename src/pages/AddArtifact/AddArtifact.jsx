@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+// import { body } from "motion/react-client";
+import Swal from "sweetalert2";
 
 const AddArtifact = () => {
   const { user } = useContext(AuthContext);
@@ -12,6 +14,27 @@ const AddArtifact = () => {
     const formData = new FormData(form);
     const newArtifact = Object.fromEntries(formData.entries());
     console.log(newArtifact);
+
+    // send artifact to db
+    fetch("http://localhost:3000/artifact", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newArtifact),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Artifact added successfully",
+            icon: "success",
+            draggable: true,
+            timer: 3000,
+          });
+        }
+        // console.log("after creating artifact",data);
+      });
   };
   return (
     <div className="mb-15 my-15 sm:w-full w-11/12 mx-auto">
@@ -45,7 +68,7 @@ const AddArtifact = () => {
 
             {/* image */}
             <fieldset className="fieldset">
-              <label className="label">Artifact Name</label>
+              <label className="label">Artifact PhotoURL</label>
               <input
                 className="input w-full"
                 type="url"
