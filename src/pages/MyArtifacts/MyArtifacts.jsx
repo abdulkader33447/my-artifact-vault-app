@@ -20,7 +20,9 @@ const MyArtifacts = () => {
 
   return (
     <div className="min-h-[calc(100vh-405px)] my-15">
-      <h1 className="sm:text-5xl text-3xl font-bold text-center my-5 px-1">My Time Capsules</h1>
+      <h1 className="sm:text-5xl text-3xl font-bold text-center my-5 px-1">
+        My Time Capsules
+      </h1>
       {artifacts?.length > 0 ? (
         <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
           <table className="table">
@@ -50,7 +52,7 @@ const MyArtifacts = () => {
                   </td>
                   <td className="flex flex-col sm:gap-2">
                     <button className="btn btn-accent sm:mt-auto mt-3 px-1 sm:py-1">
-                      update
+                      <Link to={`/updateArtifact/${artifact._id}`}>update</Link>
                     </button>{" "}
                     <button className="btn btn-secondary sm:mt-auto mt-3 px-1 sm:py-1">
                       delete

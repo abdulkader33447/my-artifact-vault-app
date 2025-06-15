@@ -1,9 +1,190 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdateArtifact = () => {
+  const { user } = useContext(AuthContext);
+  const {
+    name,
+    image,
+    type,
+    context,
+    description,
+    createdAt,
+    discoveredAt,
+    discoveredBy,
+    presentLocation,
+    _id,
+  } = useLoaderData();
+
+  const handleUpdateArtifact = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const updateArtifact = Object.fromEntries(formData.entries());
+    // console.log("from update page",updateArtifact);
+
+    // send update data to the db
+    fetch(`http://localhost:3000/artifact/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateArtifact),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          Swal.fire({
+            title: "Artifact updated successfully!",
+            icon: "success",
+            draggable: true,
+            timer: 3000,
+          });
+        }
+      });
+  };
+
   return (
-    <div>
-      <h1>UpdateArtifact</h1>
+    <div className="min-h-[calc(100vh-305px)] my-15 sm:w-full w-11/12 mx-auto">
+      <h1 className="sm:text-5xl text-3xl font-bold text-center my-5 px-1">
+        Modify Artifact Information
+      </h1>
+      <form onSubmit={handleUpdateArtifact}>
+        <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-5">
+          {/* name */}
+          <fieldset className="fieldset">
+            <label className="label">Artifact Name</label>
+            <input
+              className="input w-full"
+              type="text"
+              placeholder="artifact name"
+              name="name"
+              defaultValue={name}
+            />
+          </fieldset>
+
+          {/* image */}
+          <fieldset className="fieldset">
+            <label className="label">Artifact PhotoURL</label>
+            <input
+              className="input w-full"
+              type="url"
+              placeholder="artifact imageURL"
+              name="image"
+              defaultValue={image}
+            />
+          </fieldset>
+
+          {/* artifact type */}
+          <fieldset className="fieldset">
+            <label className="label">Artifact Type</label>
+            {/* <input
+                className="input w-full"
+                type="text"
+                placeholder="artifact type"
+                name="type"
+              /> */}
+            <select
+              // defaultValue="Pick a color"
+              className="select w-full"
+              name="type"
+              defaultValue={type}
+            >
+              <option disabled={true}>Artifact Type</option>
+              <option>Tools</option>
+              <option>Weapons</option>
+              <option>Documents</option>
+              <option>Writings</option>
+              <option>Jewelry</option>
+              <option>Religious Items</option>
+              <option>Artwork</option>
+              <option>Pottery</option>
+              <option>Others</option>
+            </select>
+          </fieldset>
+
+          {/* historical context */}
+          <fieldset className="fieldset">
+            <label className="label">Historical Context</label>
+            <input
+              type="text"
+              className="input w-full"
+              placeholder="Historical Context"
+              name="context"
+              defaultValue={context}
+            />
+          </fieldset>
+
+          {/* short description */}
+          <fieldset className="fieldset">
+            <label className="label">Short Description</label>
+            <input
+              className="input w-full"
+              type="text"
+              placeholder="Short Description"
+              name="description"
+              defaultValue={description}
+            />
+          </fieldset>
+
+          {/* created at */}
+          <fieldset className="fieldset">
+            <label className="label">Create Date</label>
+            <input
+              className="input w-full"
+              type="text"
+              placeholder="Created At ( 100 BC, 300 AD )"
+              name="createdAt"
+              defaultValue={createdAt}
+            />
+          </fieldset>
+
+          {/* discovered at */}
+          <fieldset className="fieldset">
+            <label className="label">Discovered Date</label>
+            <input
+              className="input w-full"
+              type="text"
+              placeholder="Discovered At (100 BC, 300AD)"
+              name="discoveredAt"
+              defaultValue={discoveredAt}
+            />
+          </fieldset>
+
+          {/* discovered by */}
+          <fieldset className="fieldset">
+            <label className="label">Discoverd By</label>
+            <input
+              className="input w-full"
+              type="text"
+              placeholder="Discoverd By"
+              name="discoveredBy"
+              defaultValue={discoveredBy}
+            />
+          </fieldset>
+
+          {/* present location */}
+          <fieldset className="fieldset">
+            <label className="label">Present Location</label>
+            <input
+              className="input w-full"
+              type="text"
+              placeholder="Present Location"
+              name="presentLocation"
+              defaultValue={presentLocation}
+            />
+          </fieldset>
+
+          <input
+            type="submit"
+            className="btn rounded-box  mt-[29px]"
+            value="Save Changes"
+          />
+        </div>
+      </form>
     </div>
   );
 };

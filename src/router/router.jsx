@@ -74,8 +74,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updateArtifact",
-        element: <UpdateArtifact />,
+        path: "/updateArtifact/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/artifact/${params.id}`),
+        hydrateFallbackElement: <Loading />,
+        element: (
+          <PrivateRoute>
+            <UpdateArtifact />
+          </PrivateRoute>
+        ),
       },
     ],
   },
