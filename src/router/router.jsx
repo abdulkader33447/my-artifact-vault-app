@@ -44,7 +44,10 @@ const router = createBrowserRouter([
         element: <AllArtifacts />,
       },
       {
-        path: "/artifactDetails",
+        path: "/artifactDetails/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/artifact/${params.id}`),
+        hydrateFallbackElement: <Loading />,
         element: (
           <PrivateRoute>
             <ArtifactDetails />
@@ -53,6 +56,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/myArtifacts",
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:3000/myArtifacts?email=${params.email}`),
+        // hydrateFallbackElement: <Loading />,
         element: (
           <PrivateRoute>
             <MyArtifacts />

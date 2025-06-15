@@ -16,11 +16,17 @@ const NavBar = () => {
       <li>
         <NavLink to="/allArtifacts">All Artifacts</NavLink>
       </li>
-      {
-        user ? <li>
-        <NavLink to="/addArtifacts">Add Artifacts</NavLink>
-      </li>:<></>
-      }
+      {user ? (
+        <>
+          <li>
+            <NavLink to="/myArtifacts">My Artifacts</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/addArtifacts">Add Artifacts</NavLink>
+          </li>
+        </>
+      ) : null}
     </>
   );
 
@@ -118,10 +124,7 @@ const NavBar = () => {
           </label>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {links}
-            {user ? <></> : <></>}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
 
         <div className="navbar-end">
@@ -175,7 +178,7 @@ const NavBar = () => {
                       className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm"
                     >
                       <li>
-                        <p>{user.displayName}</p>
+                        <p>{user?.displayName}</p>
                       </li>
                       <li>
                         <NavLink to="/myArtifacts">My Artifacts</NavLink>
@@ -198,9 +201,9 @@ const NavBar = () => {
           )}
           {user ? (
             <>
-              <button onClick={handleLogOut} className="btn">
+              {/* <button onClick={handleLogOut} className="btn">
                 LogOut
-              </button>
+              </button> */}
             </>
           ) : (
             <>

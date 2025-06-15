@@ -2,8 +2,8 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div>
-      <span className="loading loading-infinity loading-3xl"></span>
+    <div className='w-50 mx-auto my-80'>
+      <span className="loading loading-spinner loading-xl"></span>
     </div>
   );
 };

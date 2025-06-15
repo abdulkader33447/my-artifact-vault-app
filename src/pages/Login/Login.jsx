@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import LottieLogin from "../../assets/lotties/lotti-json.json";
 import Lottie from "lottie-react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
 
@@ -9,6 +9,7 @@ const Login = () => {
   const { logInUser, googleLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   // password REGEX
   // const isValidPassword = (password) => {
@@ -43,7 +44,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 2500,
         });
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
         console.log(result);
       })
       .catch((error) => {

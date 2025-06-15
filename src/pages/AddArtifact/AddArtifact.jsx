@@ -13,6 +13,8 @@ const AddArtifact = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newArtifact = Object.fromEntries(formData.entries());
+
+    newArtifact.likedBy = [];
     console.log(newArtifact);
 
     // send artifact to db
@@ -111,7 +113,7 @@ const AddArtifact = () => {
                 type="text"
                 className="input w-full"
                 placeholder="Historical Context"
-                name="historicalContext"
+                name="context"
               />
             </fieldset>
 
@@ -133,7 +135,7 @@ const AddArtifact = () => {
                 className="input w-full"
                 type="text"
                 placeholder="Created At ( 100 BC, 300 AD )"
-                name="createDate"
+                name="createdAt"
               />
             </fieldset>
 
@@ -144,7 +146,7 @@ const AddArtifact = () => {
                 className="input w-full"
                 type="text"
                 placeholder="Discovered At (100 BC, 300AD)"
-                name="discovered"
+                name="discoveredAt"
               />
             </fieldset>
 
@@ -155,7 +157,7 @@ const AddArtifact = () => {
                 className="input w-full"
                 type="text"
                 placeholder="Discoverd By"
-                name="discoverdBy"
+                name="discoveredBy"
               />
             </fieldset>
 
@@ -166,7 +168,7 @@ const AddArtifact = () => {
                 className="input w-full"
                 type="text"
                 placeholder="Present Location"
-                name="location"
+                name="presentLocation"
               />
             </fieldset>
 
@@ -190,7 +192,7 @@ const AddArtifact = () => {
                 type="email"
                 value={user.email}
                 readOnly
-                name="emil"
+                name="adderEmail"
               />
             </fieldset>
             <input

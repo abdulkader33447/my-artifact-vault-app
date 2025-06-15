@@ -134,7 +134,7 @@ const PopularBooks = () => {
               <div className="card-actions">
                 <a
                   className="btn btn-primary"
-                  href="https://www.indigo.ca/en-ca/lost-cities-ancient-tombs-100-discoveries-that-changed-the-world/9781426221989.html"
+                  href="https://www.amazon.com/Lost-Cities-Ancient-Tombs-Discoveries/dp/1426221983"
                   target="_blank"
                 >
                   Read More
