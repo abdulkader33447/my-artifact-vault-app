@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import { useLoaderData } from "react-router";
 import { Link } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
+import Swal from "sweetalert2";
 
 const MyArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
@@ -17,6 +18,42 @@ const MyArtifacts = () => {
         .then((data) => setArtifacts(data));
     }
   }, [userEmail]);
+
+  // ---delete artifact---
+  const handleDeleteArtifact = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/artifact/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+                timer: 3000,
+              });
+
+              // remove from ui
+              const remainingArtifact = artifacts.filter(
+                (artifact) => artifact._id !== _id
+              );
+              setArtifacts(remainingArtifact);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="min-h-[calc(100vh-405px)] my-15">
@@ -54,7 +91,10 @@ const MyArtifacts = () => {
                     <button className="btn btn-accent sm:mt-auto mt-3 px-1 sm:py-1">
                       <Link to={`/updateArtifact/${artifact._id}`}>update</Link>
                     </button>{" "}
-                    <button className="btn btn-secondary sm:mt-auto mt-3 px-1 sm:py-1">
+                    <button
+                      onClick={() => handleDeleteArtifact(artifact._id)}
+                      className="btn btn-secondary sm:mt-auto mt-3 px-1 sm:py-1"
+                    >
                       delete
                     </button>
                   </td>
