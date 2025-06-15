@@ -11,6 +11,7 @@ import UpdateArtifact from "../pages/UpdateArtifact/UpdateArtifact";
 import PrivateRoute from "../routes/PrivateRoute";
 import LikedArtifacts from "../pages/LikedArtifacts/LikedArtifacts";
 import Loading from "../pages/Home/Shared/Loading";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
             <UpdateArtifact />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/*",
+        element: <Error />,
       },
     ],
   },

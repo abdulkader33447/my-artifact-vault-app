@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
 const UpdateArtifact = () => {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
   const {
     name,
     image,
@@ -22,9 +22,21 @@ const UpdateArtifact = () => {
     e.preventDefault();
 
     const form = e.target;
-    const formData = new FormData(form);
-    const updateArtifact = Object.fromEntries(formData.entries());
+    // const formData = new FormData(form);
+    // const updateArtifact = Object.fromEntries(formData.entries());
     // console.log("from update page",updateArtifact);
+
+    const updateArtifact = {
+      name: form.name.value,
+      image: form.image.value,
+      type: form.type.value,
+      context: form.context.value,
+      description: form.description.value,
+      createdAt: form.createdAt.value,
+      discoveredAt: form.discoveredAt.value,
+      discoveredBy: form.discoveredBy.value,
+      presentLocation: form.presentLocation.value,
+    };
 
     // send update data to the db
     fetch(`http://localhost:3000/artifact/${_id}`, {

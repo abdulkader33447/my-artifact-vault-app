@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 // import { useLoaderData } from "react-router";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
 
@@ -10,6 +10,7 @@ const MyArtifacts = () => {
   const userEmail = user?.email;
   // const artifacts = useLoaderData();
   // console.log(artifacts);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (userEmail) {
@@ -43,6 +44,7 @@ const MyArtifacts = () => {
                 icon: "success",
                 timer: 3000,
               });
+              navigate("/allArtifacts")
 
               // remove from ui
               const remainingArtifact = artifacts.filter(
@@ -53,6 +55,7 @@ const MyArtifacts = () => {
           });
       }
     });
+    
   };
 
   return (
