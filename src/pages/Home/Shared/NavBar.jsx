@@ -10,7 +10,7 @@ const NavBar = () => {
   // console.log(user.photoURL);
   const [isDark, setIsDark] = useState(false);
 
-  console.log("sd", isDark);
+  // console.log("sd", isDark);
   const links = (
     <>
       <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">

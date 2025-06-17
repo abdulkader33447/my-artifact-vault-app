@@ -40,7 +40,7 @@ const UpdateArtifact = () => {
     };
 
     // send update data to the db
-    fetch(`http://localhost:3000/artifact/${_id}`, {
+    fetch(`https://a-kader-a11-server.vercel.app/artifact/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

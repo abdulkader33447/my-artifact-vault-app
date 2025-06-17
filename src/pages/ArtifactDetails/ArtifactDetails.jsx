@@ -38,7 +38,7 @@ const ArtifactDetails = () => {
         title: "Lojja!",
         text: "You cannot like your own artifact!",
       });
-    fetch(`http://localhost:3000/artifact/${_id}`, {
+    fetch(`https://a-kader-a11-server.vercel.app/artifact/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

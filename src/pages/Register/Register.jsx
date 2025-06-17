@@ -8,9 +8,9 @@ import { Helmet } from "react-helmet-async";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { user, createUser } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
-  console.log("sdf", user);
+  // console.log("sdf", user);
 
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log("form submitted :", name, photoURL, email, password);
+    // console.log("form submitted :", name, photoURL, email, password);
 
     // if (!isValidPassword(password)) {
     //   Swal.fire({

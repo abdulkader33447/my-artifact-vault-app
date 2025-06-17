@@ -14,7 +14,7 @@ const LikedArtifacts = () => {
       setLoading(false);
       return;
     }
-    fetch(`http://localhost:3000/likedArtifacts/${user.email}`)
+    fetch(`https://a-kader-a11-server.vercel.app/likedArtifacts/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setLikedArtifacts(data);

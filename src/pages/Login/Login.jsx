@@ -25,7 +25,7 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log("from signin page", email, password);
+    // console.log("from signin page", email, password);
 
     // if (!isValidPassword(password)) {
     //   Swal.fire({
@@ -46,11 +46,11 @@ const Login = () => {
           timer: 2500,
         });
         navigate(`${location.state ? location.state : "/"}`);
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        // console.log(errorMessage);
         Swal.fire({
           icon: "error",
           title: "Login Failed",
@@ -72,7 +72,7 @@ const Login = () => {
           timer: 2500,
         });
         navigate("/");
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => console.log(error));
   };

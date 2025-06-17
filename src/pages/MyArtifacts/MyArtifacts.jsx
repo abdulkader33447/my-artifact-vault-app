@@ -15,7 +15,9 @@ const MyArtifacts = () => {
 
   useEffect(() => {
     if (userEmail) {
-      fetch(`http://localhost:3000/myArtifacts?email=${userEmail}`)
+      fetch(
+        `https://a-kader-a11-server.vercel.app/myArtifacts?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => setArtifacts(data));
     }
@@ -33,7 +35,7 @@ const MyArtifacts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/artifact/${_id}`, {
+        fetch(`https://a-kader-a11-server.vercel.app/artifact/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
