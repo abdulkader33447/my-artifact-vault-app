@@ -1,12 +1,50 @@
-# React + Vite
+# 🏛️ Historical Artifacts Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application that allows users to browse, add, like, and manage historical artifacts like the Rosetta Stone, Antikythera Mechanism, and more.
 
-Currently, two official plugins are available:
+## 🔗 Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Click Here to Visit](https://artifacts-vault.web.app/)
 
-## Expanding the ESLint configuration
+## 🎯 Purpose of the Project
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The purpose of this project is to showcase:
+- User Authentication with Firebase
+- CRUD operations with MongoDB
+- Like/Dislike interactions
+- Fully responsive, modern UI
+- Real-time search and filtering
+
+---
+
+## ⚙️ Key Features
+
+- 🔐 Email/Password & Google Auth using Firebase
+- 🔒 Private/Protected Routes with JWT verification
+- 📌 Add, Update, and Delete artifacts
+- 👍 Like & Dislike toggle with live count update
+- 🔍 Search artifacts by name
+- 📂 View “My Artifacts” and “Liked Artifacts”
+- 🌍 Dynamic routing with meaningful titles
+- 🧭 Spinner, 404 page, and sweet alert integration
+- 💬 Toast notifications for user feedback
+- 🖼️ Eye-catching banner & featured section
+
+---
+
+## 🧪 Technologies Used
+
+### Client Side:
+- React
+- React Router DOM
+- Tailwind CSS + DaisyUI
+- Firebase Auth
+- SweetAlert2
+- Framer Motion
+- React Helmet Async
+
+### Server Side:
+- Express.js
+- MongoDB + Mongoose
+- CORS
+- dotenv
