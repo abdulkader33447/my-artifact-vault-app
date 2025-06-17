@@ -20,7 +20,6 @@ The purpose of this project is to showcase:
 ## ⚙️ Key Features
 
 - 🔐 Email/Password & Google Auth using Firebase
-- 🔒 Private/Protected Routes with JWT verification
 - 📌 Add, Update, and Delete artifacts
 - 👍 Like & Dislike toggle with live count update
 - 🔍 Search artifacts by name
