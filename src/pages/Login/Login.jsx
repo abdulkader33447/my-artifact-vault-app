@@ -13,12 +13,12 @@ const Login = () => {
   const location = useLocation();
 
   // password REGEX
-  // const isValidPassword = (password) => {
-  //   const upperCase = /[A-Z]/.test(password);
-  //   const lowerCase = /[a-z]/.test(password);
-  //   const isLengthValid = password.length >= 6;
-  //   return upperCase && lowerCase && isLengthValid;
-  // };
+  const isValidPassword = (password) => {
+    const upperCase = /[A-Z]/.test(password);
+    const lowerCase = /[a-z]/.test(password);
+    const isLengthValid = password.length >= 6;
+    return upperCase && lowerCase && isLengthValid;
+  };
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -27,14 +27,14 @@ const Login = () => {
     const password = form.password.value;
     // console.log("from signin page", email, password);
 
-    // if (!isValidPassword(password)) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Invalid Password",
-    //     text: "Password must have at least 6 characters, one uppercase and one lowercase letter.!",
-    //   });
-    //   return;
-    // }
+    if (!isValidPassword(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Password",
+        text: "Password must have at least 6 characters, one uppercase and one lowercase letter.!",
+      });
+      return;
+    }
 
     logInUser(email, password)
       .then((result) => {

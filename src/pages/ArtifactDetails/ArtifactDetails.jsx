@@ -9,7 +9,7 @@ const ArtifactDetails = () => {
   const { user } = useContext(AuthContext);
 
   const artDetails = useLoaderData();
-  console.log(artDetails);
+  // console.log(artDetails);
 
   const {
     adderEmail,
@@ -49,7 +49,7 @@ const ArtifactDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const isLiked = data?.liked;
         setLiked(isLiked);
         setLikeCount((prev) => (isLiked ? prev + 1 : prev - 1));

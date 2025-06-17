@@ -43,7 +43,7 @@ const NavBar = () => {
           showConfirmButton: false,
           timer: 2500,
         });
-        console.log("log out");
+        // console.log("log out");
       })
       .catch((error) => {
         console.log(error);

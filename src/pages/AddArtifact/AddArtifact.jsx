@@ -17,7 +17,7 @@ const AddArtifact = () => {
     const newArtifact = Object.fromEntries(formData.entries());
 
     newArtifact.likedBy = [];
-    console.log(newArtifact);
+    // console.log(newArtifact);
 
     // send artifact to db
     fetch("https://a-kader-a11-server.vercel.app/artifact", {

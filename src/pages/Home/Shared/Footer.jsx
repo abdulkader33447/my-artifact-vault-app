@@ -5,24 +5,24 @@ import Swal from "sweetalert2";
 import { auth } from "../../../firebase/firebase.init";
 
 const Footer = () => {
-  const { user,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
-      logOut(auth)
-        .then(() => {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "sign out user",
-            showConfirmButton: false,
-            timer: 2500,
-          });
-          console.log("log out");
-        })
-        .catch((error) => {
-          console.log(error);
+    logOut(auth)
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "sign out user",
+          showConfirmButton: false,
+          timer: 2500,
         });
-    };
+        // console.log("log out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <footer className="footer sm:footer-horizontal bg-[#00bf8308] rounded-lg text-base-content p-10">
@@ -30,7 +30,6 @@ const Footer = () => {
           <h6 className="footer-title">Links</h6>
           <Link
             to="/"
-            
             className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-300 hover:after:scale-x-100"
           >
             Home
@@ -70,7 +69,11 @@ const Footer = () => {
             <>
               <Link>
                 <div className="dropdown">
-                  <div tabIndex={0} role="button" className="btn btn-outline btn-success">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-outline btn-success"
+                  >
                     {user.displayName}
                   </div>
                   <ul
@@ -85,7 +88,6 @@ const Footer = () => {
                         LogOut
                       </button>
                     </li>
-                    
                   </ul>
                 </div>
               </Link>
