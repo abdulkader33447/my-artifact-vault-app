@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
@@ -44,7 +45,7 @@ const MyArtifacts = () => {
                 icon: "success",
                 timer: 3000,
               });
-              navigate("/allArtifacts")
+              navigate("/allArtifacts");
 
               // remove from ui
               const remainingArtifact = artifacts.filter(
@@ -55,16 +56,18 @@ const MyArtifacts = () => {
           });
       }
     });
-    
   };
 
   return (
-    <div className="min-h-[calc(100vh-405px)] my-15">
-      <h1 className="sm:text-5xl text-3xl font-bold text-center my-5 px-1">
+    <div className="min-h-[calc(100vh-485px)] my-25 ">
+      <Helmet>
+        <title>my art</title>
+      </Helmet>
+      <h1 className="sm:text-5xl text-3xl font-bold text-center my-10 px-1">
         My Time Capsules
       </h1>
       {artifacts?.length > 0 ? (
-        <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+        <div className="overflow-x-auto rounded-box border border-base-content/5 shadow-sm shadow-[#00bf8357] bg-[#00bf830f] sm:w-full w-11/12 mx-auto">
           <table className="table">
             {/* head */}
             <thead>
@@ -91,12 +94,12 @@ const MyArtifacts = () => {
                     {artifact.presentLocation}
                   </td>
                   <td className="flex flex-col sm:gap-2">
-                    <button className="btn btn-accent sm:mt-auto mt-3 px-1 sm:py-1">
+                    <button className="btn btn-outline btn-success sm:mt-auto mt-3 px-1 sm:py-1">
                       <Link to={`/updateArtifact/${artifact._id}`}>update</Link>
                     </button>{" "}
                     <button
                       onClick={() => handleDeleteArtifact(artifact._id)}
-                      className="btn btn-secondary sm:mt-auto mt-3 px-1 sm:py-1"
+                      className="btn btn-outline btn-error sm:mt-auto mt-3 px-1 sm:py-1"
                     >
                       delete
                     </button>
@@ -110,8 +113,14 @@ const MyArtifacts = () => {
         <div className="my-15">
           {artifacts.length === 0 && (
             <div className="text-center my-5">
-              <p className="mb-2">You haven’t submitted any artifact yet.</p>
-              <Link to="/addArtifacts" className="btn px-4 py-2 rounded">
+              <p className="mb-2">
+                Hey <span className="font-semibold">{user.displayName}</span>{" "}
+                ,you haven’t submitted any artifact yet.
+              </p>
+              <Link
+                to="/addArtifacts"
+                className="btn btn-outline btn-success px-4 py-2 rounded"
+              >
                 Go to Add Artifacts
               </Link>
             </div>

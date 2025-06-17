@@ -2,6 +2,7 @@ import React from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const UpdateArtifact = () => {
   // const { user } = useContext(AuthContext);
@@ -61,16 +62,19 @@ const UpdateArtifact = () => {
 
   return (
     <div className="min-h-[calc(100vh-305px)] my-15 sm:w-full w-11/12 mx-auto">
+      <Helmet>
+        <title>update</title>
+      </Helmet>
       <h1 className="sm:text-5xl text-3xl font-bold text-center my-5 px-1">
         Modify Artifact Information
       </h1>
       <form onSubmit={handleUpdateArtifact}>
         <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-5">
           {/* name */}
-          <fieldset className="fieldset">
+          <fieldset className="fieldset ">
             <label className="label">Artifact Name</label>
             <input
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               type="text"
               placeholder="artifact name"
               name="name"
@@ -82,7 +86,7 @@ const UpdateArtifact = () => {
           <fieldset className="fieldset">
             <label className="label">Artifact PhotoURL</label>
             <input
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               type="url"
               placeholder="artifact imageURL"
               name="image"
@@ -101,7 +105,7 @@ const UpdateArtifact = () => {
               /> */}
             <select
               // defaultValue="Pick a color"
-              className="select w-full"
+              className="select bg-base-100 w-full  border border-success focus:outline-none"
               name="type"
               defaultValue={type}
             >
@@ -123,7 +127,7 @@ const UpdateArtifact = () => {
             <label className="label">Historical Context</label>
             <input
               type="text"
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               placeholder="Historical Context"
               name="context"
               defaultValue={context}
@@ -134,7 +138,7 @@ const UpdateArtifact = () => {
           <fieldset className="fieldset">
             <label className="label">Short Description</label>
             <input
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               type="text"
               placeholder="Short Description"
               name="description"
@@ -146,7 +150,7 @@ const UpdateArtifact = () => {
           <fieldset className="fieldset">
             <label className="label">Create Date</label>
             <input
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               type="text"
               placeholder="Created At ( 100 BC, 300 AD )"
               name="createdAt"
@@ -158,7 +162,7 @@ const UpdateArtifact = () => {
           <fieldset className="fieldset">
             <label className="label">Discovered Date</label>
             <input
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               type="text"
               placeholder="Discovered At (100 BC, 300AD)"
               name="discoveredAt"
@@ -170,7 +174,7 @@ const UpdateArtifact = () => {
           <fieldset className="fieldset">
             <label className="label">Discoverd By</label>
             <input
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               type="text"
               placeholder="Discoverd By"
               name="discoveredBy"
@@ -182,7 +186,7 @@ const UpdateArtifact = () => {
           <fieldset className="fieldset">
             <label className="label">Present Location</label>
             <input
-              className="input w-full"
+              className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
               type="text"
               placeholder="Present Location"
               name="presentLocation"
@@ -192,7 +196,7 @@ const UpdateArtifact = () => {
 
           <input
             type="submit"
-            className="btn rounded-box  mt-[29px]"
+            className="btn btn-outline btn-success rounded-box  mt-[29px]"
             value="Save Changes"
           />
         </div>

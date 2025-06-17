@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { logInUser, googleLogin } = useContext(AuthContext);
@@ -49,7 +50,7 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        // console.log( errorMessage);
+        console.log(errorMessage);
         Swal.fire({
           icon: "error",
           title: "Login Failed",
@@ -77,8 +78,11 @@ const Login = () => {
   };
 
   return (
-    <div className=" bg-base-200 min-h-[calc(100vh-284px)]">
-      <div className="hero-content flex-col lg:flex-row-reverse w-full mx-auto">
+    <div className=" min-h-[calc(100vh-284px)] ">
+      <Helmet>
+        <title>login</title>
+      </Helmet>
+      <div className="hero-content flex-col lg:flex-row-reverse w-full mx-auto ">
         <div>
           <Lottie
             style={{ width: "300px" }}
@@ -86,35 +90,35 @@ const Login = () => {
             loop={true}
           />
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mt-10">
-          <div className="card-body">
+        <div className="card bg-[#00bf8312] w-full max-w-sm shrink-0 shadow-2xl shadow-[#00bf835d] mt-10">
+          <div className="card-body ">
             <form onSubmit={handleSignIn} className="fieldset">
               <h1 className="sm:text-5xl text-3xl font-bold">Login now!</h1>
               <label className="label">Email</label>
               <input
                 type="email"
                 name="email"
-                className="input"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 placeholder="Email"
               />
               <label className="label">Password</label>
               <input
                 type="password"
                 name="password"
-                className="input"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 placeholder="Password"
               />
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn shadow-none btn-neutral mt-4">
+              <button className="btn btn-outline btn-success mt-4">
                 Login
               </button>
               {/* Google */}
               <button
                 type="button"
                 onClick={handleGoogleLogin}
-                className="btn bg-white text-black border-[#e5e5e5]"
+                className="btn bg-white text-black border-success "
               >
                 <svg
                   aria-label="Google logo"

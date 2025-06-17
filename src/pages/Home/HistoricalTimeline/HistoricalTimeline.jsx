@@ -1,10 +1,11 @@
 import React from "react";
-import { motion } from "motion/react"
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 const HistoricalTimeline = () => {
   return (
-    <div className="my-15">
-      <h1 className="sm:text-5xl text-3xl font-bold text-center my-5">
+    <div className="my-25">
+      <h1 className="sm:text-5xl text-3xl font-bold text-center my-10">
         Historical Timeline
       </h1>
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 sm:w-full w-11/12 mx-auto space-y-2 ">
@@ -34,7 +35,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/Mesopotamia"
                 target="_blank"
               >
@@ -70,7 +71,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/Ancient_Egypt"
                 target="_blank"
               >
@@ -106,7 +107,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/Indus_Valley_Civilisation"
                 target="_blank"
               >
@@ -139,7 +140,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/Indus_Valley_Civilisation"
                 target="_blank"
               >
@@ -172,7 +173,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/Babylonia"
                 target="_blank"
               >
@@ -205,7 +206,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/Maurya_Empire"
                 target="_blank"
               >
@@ -238,7 +239,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/Ancient_Greece"
                 target="_blank"
               >
@@ -249,7 +250,7 @@ const HistoricalTimeline = () => {
         </motion.div>
 
         {/* Ancient Japanese Civilization */}
-        <motion.div className="card bg-base-100 image-full lg:w-96 md:w-86   shadow-sm"
+        <motion.div className="card bg-[#00bf8308] image-full lg:w-96 md:w-86   "
         initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -271,7 +272,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-primary"
+                className="btn btn-outline btn-success"
                 href="https://en.wikipedia.org/wiki/History_of_Japan"
                 target="_blank"
               >

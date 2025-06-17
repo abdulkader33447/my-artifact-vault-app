@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../../context/AuthContext";
 import { auth } from "../../../firebase/firebase.init";
@@ -8,21 +8,24 @@ import { FaRegUser } from "react-icons/fa";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   // console.log(user.photoURL);
+  const [isDark, setIsDark] = useState(false);
+
+  console.log("sd", isDark);
   const links = (
     <>
-      <li>
+      <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
         <NavLink to="/allArtifacts">All Artifacts</NavLink>
       </li>
       {user ? (
         <>
-          <li>
+          <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
             <NavLink to="/myArtifacts">My Artifacts</NavLink>
           </li>
 
-          <li>
+          <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
             <NavLink to="/addArtifacts">Add Artifacts</NavLink>
           </li>
         </>
@@ -46,9 +49,25 @@ const NavBar = () => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setIsDark(storedTheme === "dark");
+    document.documentElement.setAttribute("data-theme", storedTheme);
+  }, []);
+
+  // set theme to local storage
+  const handleThemeToggle = (e) => {
+    const isChecked = e.target.checked;
+    const theme = isChecked ? "dark" : "light";
+    setIsDark(isChecked);
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-[#00bf8308] rounded-b-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className=" lg:hidden">
@@ -70,7 +89,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box -z-100 mt-3 w-52 p-2 shadow-sm shadow-[#00bf8341]"
             >
               {links}
             </ul>
@@ -79,8 +98,14 @@ const NavBar = () => {
             Artifacts
           </Link>
           {/* theme toggle */}
-          <label className="toggle text-base-content">
-            <input type="checkbox" value="dark" className="theme-controller" />
+          <label className="toggle text-base-content border-success hover:shadow-[0_0_20px_#00bf83b3]">
+            <input
+              type="checkbox"
+              //value="dark"
+              onChange={handleThemeToggle}
+              checked={localStorage.getItem("theme") === "dark"}
+              className="theme-controller"
+            />
 
             <svg
               aria-label="sun"
@@ -138,26 +163,31 @@ const NavBar = () => {
                     className="cursor-pointer m-1"
                   >
                     <img
-                      className="size-9 rounded-full mr-2"
+                      className="size-9 rounded-full mr-2 hover:shadow-[0_0_20px_#00bf83b3]"
                       src={user?.photoURL}
                       alt="user photo"
                     />
                   </div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm"
+                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm shadow-[#00bf8341]"
                   >
-                    <li>
+                    <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
                       <p>{user.displayName}</p>
                     </li>
-                    <li>
+                    <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
                       <NavLink to="/myArtifacts">My Artifacts</NavLink>
                     </li>
-                    <li>
-                      <NavLink to="/likedArtifacts">Liked Artifacts</NavLink>
+                    <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
+                      <NavLink className="bg-soft-success" to="/likedArtifacts">
+                        Liked Artifacts
+                      </NavLink>
                     </li>
                     <li>
-                      <button onClick={handleLogOut} className="btn">
+                      <button
+                        onClick={handleLogOut}
+                        className="btn btn-soft btn-success"
+                      >
                         LogOut
                       </button>
                     </li>
@@ -171,14 +201,14 @@ const NavBar = () => {
                       role="button"
                       className="cursor-pointer m-1"
                     >
-                      <FaRegUser className="size-8  mr-2" />
+                      <FaRegUser className="size-8 rounded-full mr-2 hover:shadow-[0_0_20px_#00bf83b3]" />
                     </div>
                     <ul
                       tabIndex={0}
                       className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm"
                     >
-                      <li>
-                        <p>{user?.displayName}</p>
+                      <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
+                        <p>{user.displayName}</p>
                       </li>
                       <li>
                         <NavLink to="/myArtifacts">My Artifacts</NavLink>
@@ -187,7 +217,7 @@ const NavBar = () => {
                         <NavLink to="/likedArtifacts">Liked Artifacts</NavLink>
                       </li>
                       <li>
-                        <button onClick={handleLogOut} className="btn">
+                        <button onClick={handleLogOut} className="btn ">
                           LogOut
                         </button>
                       </li>
@@ -207,7 +237,7 @@ const NavBar = () => {
             </>
           ) : (
             <>
-              <NavLink className="btn" to="/login">
+              <NavLink className="btn btn-outline btn-success" to="/login">
                 Login
               </NavLink>
             </>

@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 // import { body } from "motion/react-client";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddArtifact = () => {
   const { user } = useContext(AuthContext);
+  // console.log("token",user.currentUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,29 +41,32 @@ const AddArtifact = () => {
       });
   };
   return (
-    <div className="mb-15 my-15 sm:w-full w-11/12 mx-auto">
+    <div className="my-25 sm:w-full w-11/12 mx-auto">
+      <Helmet>
+        <title>add art</title>
+      </Helmet>
       <div className="text-center space-y-5">
         <h1 className="sm:text-5xl text-3xl font-bold">
           Contribute to History: Add a New Artifact
         </h1>
-        <p className="sm:px-96">
+        <p className="2xl:px-84 lg:px-44 ">
           Help preserve the past by sharing valuable artifacts with the world.
           Fill out the details of a historical item you've discovered or
           studied. Your contribution adds to a collective journey of
           exploration, heritage, and learning.
         </p>
       </div>
-      <div className="shadow lg:p-10 md:-4 p-2 rounded-box my-5">
+      <div className="shadow-sm shadow-[#00bf835d] lg:p-10 md:-4 p-2 rounded-box my-10">
         <h2 className="text-center font-semibold text-xl my-2">
           Artifact Submission Form
         </h2>
         <form onSubmit={handleSubmit}>
-          <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-5">
+          <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-8 gap-5 ">
             {/* name */}
             <fieldset className="fieldset">
               <label className="label">Artifact Name</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
                 placeholder="artifact name"
                 name="name"
@@ -72,7 +77,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Artifact PhotoURL</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="url"
                 placeholder="artifact imageURL"
                 name="image"
@@ -90,7 +95,7 @@ const AddArtifact = () => {
               /> */}
               <select
                 defaultValue="Pick a color"
-                className="select w-full"
+                className="select w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 name="type"
               >
                 <option disabled={true}>Artifact Type</option>
@@ -111,7 +116,7 @@ const AddArtifact = () => {
               <label className="label">Historical Context</label>
               <input
                 type="text"
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 placeholder="Historical Context"
                 name="context"
               />
@@ -121,7 +126,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Short Description</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
                 placeholder="Short Description"
                 name="description"
@@ -132,7 +137,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Create Date</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
                 placeholder="Created At ( 100 BC, 300 AD )"
                 name="createdAt"
@@ -143,7 +148,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Discovered Date</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
                 placeholder="Discovered At (100 BC, 300AD)"
                 name="discoveredAt"
@@ -154,7 +159,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Discoverd By</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
                 placeholder="Discoverd By"
                 name="discoveredBy"
@@ -165,7 +170,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Present Location</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
                 placeholder="Present Location"
                 name="presentLocation"
@@ -176,7 +181,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Artifact Name</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
                 value={user.displayName}
                 readOnly
@@ -188,7 +193,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Adder Email</label>
               <input
-                className="input w-full"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="email"
                 value={user.email}
                 readOnly
@@ -197,7 +202,7 @@ const AddArtifact = () => {
             </fieldset>
             <input
               type="submit"
-              className="btn rounded-box  mt-[29px]"
+              className="btn btn-outline btn-success rounded-box  mt-[29px]"
               value="Add Artifact"
             />
           </div>
