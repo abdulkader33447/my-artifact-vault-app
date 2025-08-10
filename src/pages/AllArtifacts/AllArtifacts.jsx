@@ -65,7 +65,7 @@ const AllArtifacts = () => {
             <button
               key={index}
               onClick={() => setCurrentPage(index + 1)}
-              className={`px-3 py-1 rounded ${
+              className={`px-3 py-1 rounded cursor-pointer ${
                 currenPage === index + 1
                   ? "bg-green-400 text-white outline"
                   : "outline text-green-500"
