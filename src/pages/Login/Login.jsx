@@ -111,7 +111,7 @@ const Login = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-outline btn-success mt-4 transform duration-600">
+              <button className="btn btn-outline btn-success mt-4 transition duration-700 hover:text-white">
                 Login
               </button>
               {/* Google */}

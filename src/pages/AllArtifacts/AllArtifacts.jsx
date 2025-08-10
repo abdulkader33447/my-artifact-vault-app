@@ -49,7 +49,7 @@ const AllArtifacts = () => {
               <div className="card-actions justify-end">
                 <NavLink
                   to={`/artifactDetails/${artifact._id}`}
-                  className="btn btn-outline btn-success transform duration-600"
+                  className="btn btn-outline btn-success transform duration-700 hover:text-white"
                 >
                   View Detail
                 </NavLink>
@@ -67,8 +67,8 @@ const AllArtifacts = () => {
               onClick={() => setCurrentPage(index + 1)}
               className={`px-3 py-1 rounded ${
                 currenPage === index + 1
-                  ? "bg-green-400 text-white"
-                  : "bg-gray-200 hover:bg-gray-200"
+                  ? "bg-green-400 text-white outline"
+                  : "outline text-green-500"
               }`}
             >
               {index + 1}

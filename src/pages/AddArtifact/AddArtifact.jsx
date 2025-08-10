@@ -72,7 +72,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Artifact Name</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="text"
                 placeholder="artifact name"
                 name="name"
@@ -84,7 +84,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Artifact PhotoURL</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="url"
                 placeholder="artifact imageURL"
                 name="image"
@@ -103,7 +103,7 @@ const AddArtifact = () => {
               /> */}
               <select
                 defaultValue=""
-                className="select w-full border border-success focus:outline-none"
+                className="select w-full border border-success focus:outline-none rounded-box"
                 name="type"
                 required
               >
@@ -126,7 +126,7 @@ const AddArtifact = () => {
               <input
               required
                 type="text"
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 placeholder="Historical Context"
                 name="context"
               />
@@ -136,7 +136,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Short Description</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="text"
                 placeholder="Short Description"
                 name="description"
@@ -148,7 +148,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Create Date</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="text"
                 placeholder="Created At ( 100 BC, 300 AD )"
                 name="createdAt"
@@ -160,7 +160,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Discovered Date</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="text"
                 placeholder="Discovered At (100 BC, 300AD)"
                 name="discoveredAt"
@@ -172,7 +172,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Discoverd By</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="text"
                 placeholder="Discoverd By"
                 name="discoveredBy"
@@ -184,7 +184,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Present Location</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="text"
                 placeholder="Present Location"
                 name="presentLocation"
@@ -196,7 +196,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Contributer Name</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="text"
                 value={user.displayName}
                 readOnly
@@ -208,7 +208,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Adder Email</label>
               <input
-                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f] rounded-box"
                 type="email"
                 value={user.email}
                 readOnly
@@ -217,7 +217,7 @@ const AddArtifact = () => {
             </fieldset>
             <input
               type="submit"
-              className="btn btn-outline btn-success rounded-box  mt-[29px] transform duration-600"
+              className="btn btn-outline btn-success hover:text-white rounded-box  mt-[29px] transition duration-700"
               value="Add Artifact"
             />
           </div>

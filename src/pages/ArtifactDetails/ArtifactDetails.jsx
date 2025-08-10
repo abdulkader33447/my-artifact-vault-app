@@ -253,7 +253,7 @@ const ArtifactDetails = () => {
                   <button
                     onClick={handleLike}
                     // disabled={liked}
-                    className="btn btn-outline btn-success flex items-center gap-2  transform duration-600"
+                    className="btn btn-outline btn-success flex items-center gap-2  transform duration-700 hover:text-white"
                   >
                     {liked ? (
                       <AiFillLike className="text-xl" />

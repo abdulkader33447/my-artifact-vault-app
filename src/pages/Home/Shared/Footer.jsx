@@ -30,35 +30,35 @@ const Footer = () => {
           <h6 className="footer-title">Links</h6>
           <Link
             to="/"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100 hover:text-[#00bf83] transition duration-700"
           >
             Home
           </Link>
 
           <Link
             to="/allArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100 hover:text-[#00bf83] transition duration-700"
           >
             All Artifacts
           </Link>
 
           <Link
             to="/myArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100 hover:text-[#00bf83] transition duration-700"
           >
             My Artifacts
           </Link>
 
           <Link
             to="/addArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100 hover:text-[#00bf83] transition duration-700"
           >
             Add Artifacts
           </Link>
 
           <Link
             to="/likedArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100 hover:text-[#00bf83] transition duration-700"
           >
             Liked Artifacts
           </Link>
@@ -67,7 +67,7 @@ const Footer = () => {
           <h6 className="footer-title">Authentication</h6>
           {user ? (
             <>
-              <h1 className="text-lg">User: <span className="text-gray-300">{user.displayName}</span></h1>
+              <h1 className="text-lg">User: <span className="text-gray-400">{user.displayName}</span></h1>
             </>
           ) : (
             <>

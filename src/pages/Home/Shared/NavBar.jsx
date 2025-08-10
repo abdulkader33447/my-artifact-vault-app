@@ -219,7 +219,7 @@ const NavBar = () => {
                     <li>
                       <button
                         onClick={handleLogOut}
-                        className="btn btn-soft btn-success transform duration-600 mt-2"
+                        className="btn btn-outline btn-success transition duration-700 mt-2 hover:text-white"
                       >
                         LogOut
                       </button>

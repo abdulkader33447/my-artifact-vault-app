@@ -45,7 +45,7 @@ const HistoricalTimeline = () => {
 
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/Mesopotamia"
                 target="_blank"
               >
@@ -81,7 +81,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/Ancient_Egypt"
                 target="_blank"
               >
@@ -117,7 +117,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/Indus_Valley_Civilisation"
                 target="_blank"
               >
@@ -153,7 +153,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/Indus_Valley_Civilisation"
                 target="_blank"
               >
@@ -189,7 +189,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/Babylonia"
                 target="_blank"
               >
@@ -225,7 +225,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/Maurya_Empire"
                 target="_blank"
               >
@@ -261,7 +261,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/Ancient_Greece"
                 target="_blank"
               >
@@ -297,7 +297,7 @@ const HistoricalTimeline = () => {
             </p>
             <div className="card-actions justify-end">
               <a
-                className="btn btn-outline btn-success transform duration-600"
+                className="btn btn-outline btn-success transition duration-700 hover:text-white"
                 href="https://en.wikipedia.org/wiki/History_of_Japan"
                 target="_blank"
               >

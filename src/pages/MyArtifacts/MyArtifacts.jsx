@@ -96,12 +96,12 @@ const MyArtifacts = () => {
                     {artifact.presentLocation}
                   </td>
                   <td className="flex flex-col sm:gap-2">
-                    <button className="btn btn-outline btn-success sm:mt-auto mt-3 px-1 sm:py-1 transform duration-600">
+                    <button className="btn btn-outline btn-success sm:mt-auto mt-3 px-1 sm:py-1 transition duration-700 hover:text-white">
                       <Link to={`/updateArtifact/${artifact._id}`}>update</Link>
                     </button>{" "}
                     <button
                       onClick={() => handleDeleteArtifact(artifact._id)}
-                      className="btn btn-outline btn-error sm:mt-auto mt-3 px-1 sm:py-1 transform duration-600"
+                      className="btn btn-outline btn-error sm:mt-auto mt-3 px-1 sm:py-1 transition duration-700 hover:text-white"
                     >
                       delete
                     </button>

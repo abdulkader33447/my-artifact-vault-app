@@ -61,7 +61,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.7/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success transform duration-600"
+                  className="btn btn-outline btn-success transition duration-700 hover:text-white"
                   href="https://en.wikipedia.org/wiki/A_History_of_the_World_in_100_Objects"
                   target="_blank"
                 >
@@ -93,7 +93,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.5/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success transform duration-600"
+                  className="btn btn-outline btn-success transition duration-700 hover:text-white"
                   href="https://en.wikipedia.org/wiki/The_Archaeology_of_Knowledge"
                   target="_blank"
                 >
@@ -125,7 +125,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.8/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success transform duration-600"
+                  className="btn btn-outline btn-success transition duration-700 hover:text-white"
                   href="https://www.amazon.com/Lost-Cities-Ancient-Tombs-Discoveries/dp/1426221983"
                   target="_blank"
                 >
@@ -157,7 +157,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.7/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success transform duration-600"
+                  className="btn btn-outline btn-success transition duration-700 hover:text-white"
                   href="https://www.amazon.com/Story-Art-H-Gombrich/dp/0714832472"
                   target="_blank"
                 >

@@ -66,7 +66,7 @@ const Home = () => {
                 >
                   <Link
                     to={`/artifactDetails/${artifact._id}`}
-                    className="btn btn-outline btn-success transform duration-600"
+                    className="btn btn-outline btn-success transition duration-700 hover:text-white"
                   >
                     View Details
                   </Link>
@@ -77,7 +77,7 @@ const Home = () => {
         </div>
       </div>
       <div className="text-center mt-10">
-        <Link to="/allArtifacts" className="btn btn-outline btn-success transform duration-600">
+        <Link to="/allArtifacts" className="btn btn-outline btn-success transition duration-700 hover:text-white">
           See All
         </Link>
       </div>

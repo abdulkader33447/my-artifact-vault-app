@@ -43,7 +43,7 @@ const LikedArtifacts = () => {
             you have not liked any artifacts yet. <br />
             go to artifact page , and like artifact
           </p>
-          <Link className="btn btn-outline btn-success mt-5 transform duration-600" to="/allArtifacts">
+          <Link className="btn btn-outline btn-success mt-5 transition duration-700 hover:text-white" to="/allArtifacts">
             All Artifact
           </Link>
         </div>
