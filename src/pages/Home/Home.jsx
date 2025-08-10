@@ -32,14 +32,18 @@ const Home = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-5 sm:w-full w-11/12 mx-auto">
+        <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 gap-5 sm:w-full w-11/12 mx-auto">
           {artifacts?.map((artifact) => (
             <div
               key={artifact._id}
               className="card bg-[#00bf830f] w-full shadow-sm shadow-[#00bf8357] mx-auto"
             >
-              <figure>
-                <img src={artifact.image} alt="artifact" />
+              <figure className="h-[400px] overflow-hidden">
+                <img
+                  className="object-cover h-full w-full transition duration-300 transform group-hover:scale-105"
+                  src={artifact.image}
+                  alt="artifact"
+                />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">
@@ -62,7 +66,7 @@ const Home = () => {
                 >
                   <Link
                     to={`/artifactDetails/${artifact._id}`}
-                    className="btn btn-outline btn-success"
+                    className="btn btn-outline btn-success transform duration-600"
                   >
                     View Details
                   </Link>
@@ -73,12 +77,12 @@ const Home = () => {
         </div>
       </div>
       <div className="text-center mt-10">
-        <Link to="/allArtifacts" className="btn btn-outline btn-success">
+        <Link to="/allArtifacts" className="btn btn-outline btn-success transform duration-600">
           See All
         </Link>
       </div>
       <HistoricalTimeline />
-      <PopularBooks  />
+      <PopularBooks />
     </div>
   );
 };

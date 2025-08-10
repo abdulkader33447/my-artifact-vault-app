@@ -133,7 +133,7 @@ const Register = () => {
                 {/* <div>
                   <a className="link link-hover">Forgot password?</a>
                 </div> */}
-                <button className="btn btn-outline btn-success mt-4">
+                <button className="btn btn-outline btn-success mt-4 transform duration-600">
                   Register now
                 </button>
                 <p>

@@ -24,7 +24,7 @@ const Error = () => {
         <button>
           <Link
             to="/"
-            className="btn btn-outline btn-success my-10 shadow-none "
+            className="btn btn-outline btn-success my-10 shadow-none transform duration-600"
           >
             Go to Home
           </Link>

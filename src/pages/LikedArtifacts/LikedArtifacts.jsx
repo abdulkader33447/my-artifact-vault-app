@@ -14,7 +14,7 @@ const LikedArtifacts = () => {
       setLoading(false);
       return;
     }
-    fetch(`https://a-kader-a11-server.vercel.app/likedArtifacts/${user.email}`)
+    fetch(`http://localhost:3000/likedArtifacts/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setLikedArtifacts(data);
@@ -43,7 +43,7 @@ const LikedArtifacts = () => {
             you have not liked any artifacts yet. <br />
             go to artifact page , and like artifact
           </p>
-          <Link className="btn btn-outline btn-success mt-5" to="/allArtifacts">
+          <Link className="btn btn-outline btn-success mt-5 transform duration-600" to="/allArtifacts">
             All Artifact
           </Link>
         </div>

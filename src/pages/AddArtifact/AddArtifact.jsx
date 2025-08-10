@@ -3,10 +3,13 @@ import { AuthContext } from "../../context/AuthContext";
 // import { body } from "motion/react-client";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { useLocation, useNavigate } from "react-router";
 
 const AddArtifact = () => {
   const { user } = useContext(AuthContext);
   // console.log("token",user.currentUser);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +23,8 @@ const AddArtifact = () => {
     // console.log(newArtifact);
 
     // send artifact to db
-    fetch("https://a-kader-a11-server.vercel.app/artifact", {
+    //live server-https://a-kader-a11-server.vercel.app/
+    fetch("http://localhost:3000/artifact", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -36,6 +40,8 @@ const AddArtifact = () => {
             draggable: true,
             timer: 3000,
           });
+          navigate(`${location.state ? location.state : "/myArtifacts"}`);
+
         }
         // console.log("after creating artifact",data);
       });
@@ -70,6 +76,7 @@ const AddArtifact = () => {
                 type="text"
                 placeholder="artifact name"
                 name="name"
+                required
               />
             </fieldset>
 
@@ -81,6 +88,7 @@ const AddArtifact = () => {
                 type="url"
                 placeholder="artifact imageURL"
                 name="image"
+                required
               />
             </fieldset>
 
@@ -94,11 +102,12 @@ const AddArtifact = () => {
                 name="type"
               /> */}
               <select
-                defaultValue="Pick a color"
-                className="select w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
+                defaultValue=""
+                className="select w-full border border-success focus:outline-none"
                 name="type"
+                required
               >
-                <option disabled={true}>Artifact Type</option>
+                <option value={""} disabled>Select Artifact Type</option>
                 <option>Tools</option>
                 <option>Weapons</option>
                 <option>Documents</option>
@@ -115,6 +124,7 @@ const AddArtifact = () => {
             <fieldset className="fieldset">
               <label className="label">Historical Context</label>
               <input
+              required
                 type="text"
                 className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 placeholder="Historical Context"
@@ -130,6 +140,7 @@ const AddArtifact = () => {
                 type="text"
                 placeholder="Short Description"
                 name="description"
+                required
               />
             </fieldset>
 
@@ -141,6 +152,7 @@ const AddArtifact = () => {
                 type="text"
                 placeholder="Created At ( 100 BC, 300 AD )"
                 name="createdAt"
+                required
               />
             </fieldset>
 
@@ -152,6 +164,7 @@ const AddArtifact = () => {
                 type="text"
                 placeholder="Discovered At (100 BC, 300AD)"
                 name="discoveredAt"
+                required
               />
             </fieldset>
 
@@ -163,6 +176,7 @@ const AddArtifact = () => {
                 type="text"
                 placeholder="Discoverd By"
                 name="discoveredBy"
+                required
               />
             </fieldset>
 
@@ -174,12 +188,13 @@ const AddArtifact = () => {
                 type="text"
                 placeholder="Present Location"
                 name="presentLocation"
+                required
               />
             </fieldset>
 
             {/* adder name */}
             <fieldset className="fieldset">
-              <label className="label">Artifact Name</label>
+              <label className="label">Contributer Name</label>
               <input
                 className="input w-full border border-success focus:outline-none focus:bg-[#00bf830f]"
                 type="text"
@@ -202,7 +217,7 @@ const AddArtifact = () => {
             </fieldset>
             <input
               type="submit"
-              className="btn btn-outline btn-success rounded-box  mt-[29px]"
+              className="btn btn-outline btn-success rounded-box  mt-[29px] transform duration-600"
               value="Add Artifact"
             />
           </div>

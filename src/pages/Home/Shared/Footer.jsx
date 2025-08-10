@@ -1,64 +1,64 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../../../context/AuthContext";
-import Swal from "sweetalert2";
-import { auth } from "../../../firebase/firebase.init";
-
+// import Swal from "sweetalert2";
+// import { auth } from "../../../firebase/firebase.init";
+//✦ ⚜︎ ⚱︎ ⚚ ✶ ☉ ✵ ⚝ ⚛︎
 const Footer = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  const handleLogOut = () => {
-    logOut(auth)
-      .then(() => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "sign out user",
-          showConfirmButton: false,
-          timer: 2500,
-        });
-        // console.log("log out");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleLogOut = () => {
+  //   logOut(auth)
+  //     .then(() => {
+  //       Swal.fire({
+  //         position: "top-end",
+  //         icon: "success",
+  //         title: "sign out user",
+  //         showConfirmButton: false,
+  //         timer: 2500,
+  //       });
+  //       // console.log("log out");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   return (
     <div>
-      <footer className="footer sm:footer-horizontal bg-[#00bf8308] rounded-lg text-base-content p-10">
-        <nav>
+      <footer className="footer w-full mx-auto sm:footer-horizontal bg-[#00bf8308] rounded-lg text-base-content p-10 sm:flex sm:justify-around">
+        <nav className="text-center">
           <h6 className="footer-title">Links</h6>
           <Link
             to="/"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-300 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
           >
             Home
           </Link>
 
           <Link
             to="/allArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-300 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
           >
             All Artifacts
           </Link>
 
           <Link
             to="/myArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-300 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
           >
             My Artifacts
           </Link>
 
           <Link
             to="/addArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-300 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
           >
             Add Artifacts
           </Link>
 
           <Link
             to="/likedArtifacts"
-            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-300 hover:after:scale-x-100"
+            className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
           >
             Liked Artifacts
           </Link>
@@ -67,36 +67,13 @@ const Footer = () => {
           <h6 className="footer-title">Authentication</h6>
           {user ? (
             <>
-              <Link>
-                <div className="dropdown">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className="btn btn-outline btn-success"
-                  >
-                    {user.displayName}
-                  </div>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-                  >
-                    <li>
-                      <button
-                        onClick={handleLogOut}
-                        className="btn btn-outline btn-success"
-                      >
-                        LogOut
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </Link>
+              <h1 className="text-lg">User: <span className="text-gray-300">{user.displayName}</span></h1>
             </>
           ) : (
             <>
               <Link
                 to="/login"
-                className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="cursor-pointer relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#00bf83] after:transition-transform after:duration-700 hover:after:scale-x-100"
               >
                 Login
               </Link>
@@ -107,7 +84,7 @@ const Footer = () => {
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
             <a
-              className="hover:text-success cursor-pointer"
+              className="hover:text-success cursor-pointer transform duration-600"
               href="https://x.com/"
               target="_blank"
             >
@@ -122,7 +99,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              className="hover:text-success cursor-pointer"
+              className="hover:text-success cursor-pointertransform duration-600"
               href="https://www.youtube.com/"
               target="_blank"
             >
@@ -137,7 +114,7 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              className="hover:text-success cursor-pointer"
+              className="hover:text-success cursor-pointer transform duration-600"
               href="https://www.facebook.com/profile.php?id=100022417866700"
               target="_blank"
             >

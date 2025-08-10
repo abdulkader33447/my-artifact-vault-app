@@ -38,7 +38,8 @@ const ArtifactDetails = () => {
         title: "Lojja!",
         text: "You cannot like your own artifact!",
       });
-    fetch(`https://a-kader-a11-server.vercel.app/artifact/${_id}`, {
+      //live server-https://a-kader-a11-server.vercel.app/
+    fetch(`http://localhost:3000/artifact/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -252,7 +253,7 @@ const ArtifactDetails = () => {
                   <button
                     onClick={handleLike}
                     // disabled={liked}
-                    className="btn btn-outline btn-success flex items-center gap-2"
+                    className="btn btn-outline btn-success flex items-center gap-2  transform duration-600"
                   >
                     {liked ? (
                       <AiFillLike className="text-xl" />

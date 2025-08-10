@@ -16,7 +16,7 @@ const MyArtifacts = () => {
   useEffect(() => {
     if (userEmail) {
       fetch(
-        `https://a-kader-a11-server.vercel.app/myArtifacts?email=${userEmail}`
+        `http://localhost:3000/myArtifacts?email=${userEmail}`
       )
         .then((res) => res.json())
         .then((data) => setArtifacts(data));
@@ -35,7 +35,7 @@ const MyArtifacts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://a-kader-a11-server.vercel.app/artifact/${_id}`, {
+        fetch(`http://localhost:3000/artifact/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -96,12 +96,12 @@ const MyArtifacts = () => {
                     {artifact.presentLocation}
                   </td>
                   <td className="flex flex-col sm:gap-2">
-                    <button className="btn btn-outline btn-success sm:mt-auto mt-3 px-1 sm:py-1">
+                    <button className="btn btn-outline btn-success sm:mt-auto mt-3 px-1 sm:py-1 transform duration-600">
                       <Link to={`/updateArtifact/${artifact._id}`}>update</Link>
                     </button>{" "}
                     <button
                       onClick={() => handleDeleteArtifact(artifact._id)}
-                      className="btn btn-outline btn-error sm:mt-auto mt-3 px-1 sm:py-1"
+                      className="btn btn-outline btn-error sm:mt-auto mt-3 px-1 sm:py-1 transform duration-600"
                     >
                       delete
                     </button>
@@ -121,7 +121,7 @@ const MyArtifacts = () => {
               </p>
               <Link
                 to="/addArtifacts"
-                className="btn btn-outline btn-success px-4 py-2 rounded"
+                className="btn btn-outline btn-success px-4 py-2 rounded transform duration-600"
               >
                 Go to Add Artifacts
               </Link>

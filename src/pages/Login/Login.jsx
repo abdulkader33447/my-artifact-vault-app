@@ -71,7 +71,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 2500,
         });
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
         // console.log(result);
       })
       .catch((error) => console.log(error));
@@ -111,7 +111,7 @@ const Login = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-outline btn-success mt-4">
+              <button className="btn btn-outline btn-success mt-4 transform duration-600">
                 Login
               </button>
               {/* Google */}

@@ -40,7 +40,7 @@ const UpdateArtifact = () => {
     };
 
     // send update data to the db
-    fetch(`https://a-kader-a11-server.vercel.app/artifact/${_id}`, {
+    fetch(`http://localhost:3000/artifact/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -196,7 +196,7 @@ const UpdateArtifact = () => {
 
           <input
             type="submit"
-            className="btn btn-outline btn-success rounded-box  mt-[29px]"
+            className="btn btn-outline btn-success rounded-box  mt-[29px] transform duration-600"
             value="Save Changes"
           />
         </div>

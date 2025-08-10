@@ -1,0 +1,28 @@
+/* artifact-spinner.css */
+/* rotations */
+@keyframes spin-slow { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+@keyframes spin-reverse { 0%{transform:rotate(0deg)} 100%{transform:rotate(-360deg)} }
+@keyframes spin-slower { 0%{transform:rotate(0deg)} 100%{transform:rotate(720deg)} }
+
+.animate-spin-slow { animation: spin-slow 5.5s linear infinite; }
+.animate-spin-reverse { animation: spin-reverse 7.5s linear infinite; }
+.animate-spin-slower { animation: spin-slower 12s linear infinite; }
+
+/* rune glow tuned for translucent teal background */
+.rune-glow {
+  text-shadow:
+    0 0 4px rgba(0, 191, 131, 0.36),
+    0 0 10px rgba(0, 191, 131, 0.36),
+    0 0 18px rgba(0, 191, 131, 0.36);
+}
+
+/* small accessibility: reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-spin-reverse,
+  .animate-spin-slower,
+  .animate-pulse {
+    animation: none !important;
+    transform: none !important;
+  }
+}

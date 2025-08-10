@@ -37,7 +37,7 @@ const PopularBooks = () => {
       <div className="">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 justify-items-center">
           {/* A History of the World in 100 Objects */}
-          <div className="card sm:w-96 shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
+          <div className="card w-11/12 shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
             <figure className="px-2 pt-2">
               <img
                 src="https://i.ibb.co/1fhqYmx3/a-history-of-the-world-in-100-objects-original-imafy3efp4ucjbsa.webp"
@@ -61,7 +61,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.7/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success"
+                  className="btn btn-outline btn-success transform duration-600"
                   href="https://en.wikipedia.org/wiki/A_History_of_the_World_in_100_Objects"
                   target="_blank"
                 >
@@ -72,7 +72,7 @@ const PopularBooks = () => {
           </div>
 
           {/* The Archaeology of Knowledge */}
-          <div className="card sm:w-96  shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
+          <div className="card w-11/12  shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
             <figure className="px-2 pt-2">
               <img
                 src="https://i.ibb.co/4nd12Ctr/9780203604168.jpg"
@@ -93,7 +93,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.5/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success"
+                  className="btn btn-outline btn-success transform duration-600"
                   href="https://en.wikipedia.org/wiki/The_Archaeology_of_Knowledge"
                   target="_blank"
                 >
@@ -104,7 +104,7 @@ const PopularBooks = () => {
           </div>
 
           {/*  Lost Cities, Ancient Tombs */}
-          <div className="card sm:w-96  shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
+          <div className="card w-11/12 shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
             <figure className="px-2 pt-2">
               <img
                 src="https://i.ibb.co/W4fZtrTZ/57355940.jpg"
@@ -125,7 +125,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.8/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success"
+                  className="btn btn-outline btn-success transform duration-600"
                   href="https://www.amazon.com/Lost-Cities-Ancient-Tombs-Discoveries/dp/1426221983"
                   target="_blank"
                 >
@@ -136,7 +136,7 @@ const PopularBooks = () => {
           </div>
 
           {/*  The story of art */}
-          <div className="card sm:w-96  shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
+          <div className="card w-11/12 shadow-sm shadow-[#00bf8357] bg-[#00bf830f]">
             <figure className="px-2 pt-2">
               <img
                 src="https://i.ibb.co/FT6qt02/978071483247020210514-4-1y4hzb9.jpg"
@@ -157,7 +157,7 @@ const PopularBooks = () => {
               <p>Rating: ⭐ 4.7/5</p>
               <div className="card-actions">
                 <a
-                  className="btn btn-outline btn-success"
+                  className="btn btn-outline btn-success transform duration-600"
                   href="https://www.amazon.com/Story-Art-H-Gombrich/dp/0714832472"
                   target="_blank"
                 >

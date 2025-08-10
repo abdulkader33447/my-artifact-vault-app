@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("https://a-kader-a11-server.vercel.app/featuredArtifacts"),
+        loader: () => fetch("http://localhost:3000/featuredArtifacts"),
         hydrateFallbackElement: <Loading />,
         Component: Home,
       },
@@ -42,14 +42,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/allArtifacts",
-        loader: () => fetch("https://a-kader-a11-server.vercel.app/artifact"),
+        loader: () => fetch("http://localhost:3000/artifact"),
         hydrateFallbackElement: <Loading />,
         element: <AllArtifacts />,
       },
       {
         path: "/artifactDetails/:id",
         loader: ({ params }) =>
-          fetch(`https://a-kader-a11-server.vercel.app/artifact/${params.id}`),
+          fetch(`http://localhost:3000/artifact/${params.id}`),
         hydrateFallbackElement: <Loading />,
         element: (
           <PrivateRoute>
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: "/myArtifacts",
         // loader: ({ params }) =>
-        //   fetch(`https://a-kader-a11-server.vercel.app/myArtifacts?email=${params.email}`),
+        //   fetch(`http://localhost:3000/myArtifacts?email=${params.email}`),
         // hydrateFallbackElement: <Loading />,
         element: (
           <PrivateRoute>
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
       {
         path: "/updateArtifact/:id",
         loader: ({ params }) =>
-          fetch(`https://a-kader-a11-server.vercel.app/artifact/${params.id}`),
+          fetch(`http://localhost:3000/artifact/${params.id}`),
         hydrateFallbackElement: <Loading />,
         element: (
           <PrivateRoute>

@@ -13,20 +13,48 @@ const NavBar = () => {
   // console.log("sd", isDark);
   const links = (
     <>
-      <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
-        <NavLink to="/">Home</NavLink>
+      <li>
+        <NavLink
+          to="/"
+          className="hover:shadow-md shadow-[#00bf835d] transition duration-700"
+        >
+          Home
+        </NavLink>
       </li>
-      <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
-        <NavLink to="/allArtifacts">All Artifacts</NavLink>
+      <li>
+        <NavLink
+          to="/allArtifacts"
+          className=" hover:shadow-md shadow-[#00bf835d] transition duration-700"
+        >
+          All Artifacts
+        </NavLink>
       </li>
       {user ? (
         <>
-          <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
-            <NavLink to="/myArtifacts">My Artifacts</NavLink>
+          <li>
+            <NavLink
+              to="/myArtifacts"
+              className="hover:shadow-md shadow-[#00bf835d] transition duration-700"
+            >
+              My Artifacts
+            </NavLink>
           </li>
 
-          <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
-            <NavLink to="/addArtifacts">Add Artifacts</NavLink>
+          <li>
+            <NavLink
+              to="/addArtifacts"
+              className="hover:shadow-md shadow-[#00bf835d] transition duration-700"
+            >
+              Add Artifacts
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/likedArtifacts"
+              className="hover:shadow-md shadow-[#00bf835d] transition duration-700"
+            >
+              Liked Artifacts
+            </NavLink>
           </li>
         </>
       ) : null}
@@ -67,10 +95,10 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="navbar bg-[#00bf8308] rounded-b-lg">
+      <div className="navbar bg-[#00bf837e] rounded-b-lg fixed z-50 top-0 left-0 right-0 shadow-md shadow-[#00bf837e]">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className=" lg:hidden">
+            <div tabIndex={0} role="button" className="lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-7 w-7 mr-2"
@@ -98,7 +126,7 @@ const NavBar = () => {
             Artifacts
           </Link>
           {/* theme toggle */}
-          <label className="toggle text-base-content border-success hover:shadow-[0_0_20px_#00bf83b3]">
+          <label className="toggle text-base-content border-success hover:shadow-[0_0_20px_#00bf83b3] transform duration-300">
             <input
               type="checkbox"
               //value="dark"
@@ -163,7 +191,7 @@ const NavBar = () => {
                     className="cursor-pointer m-1"
                   >
                     <img
-                      className="size-9 rounded-full mr-2 hover:shadow-[0_0_20px_#00bf83b3]"
+                      className="size-9 rounded-full mr-2 hover:shadow-[0_0_20px_#00bf83b3] transform duration-600"
                       src={user?.photoURL}
                       alt="user photo"
                     />
@@ -172,21 +200,26 @@ const NavBar = () => {
                     tabIndex={0}
                     className="dropdown-content menu bg-base-100 rounded-box z-1 w-35 p-2 shadow-sm shadow-[#00bf8341]"
                   >
-                    <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
-                      <p>{user.displayName}</p>
+                    <li>
+                      <NavLink
+                        className="hover:shadow-md shadow-[#00bf835d] transition duration-700"
+                        to="/myArtifacts"
+                      >
+                        My Artifacts
+                      </NavLink>
                     </li>
-                    <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
-                      <NavLink to="/myArtifacts">My Artifacts</NavLink>
-                    </li>
-                    <li className="hover:bg-[#00bf8315] hover:shadow-md shadow-[#00bf835d]">
-                      <NavLink className="bg-soft-success" to="/likedArtifacts">
+                    <li>
+                      <NavLink
+                        className="hover:shadow-md shadow-[#00bf835d] transition duration-700"
+                        to="/likedArtifacts"
+                      >
                         Liked Artifacts
                       </NavLink>
                     </li>
                     <li>
                       <button
                         onClick={handleLogOut}
-                        className="btn btn-soft btn-success"
+                        className="btn btn-soft btn-success transform duration-600 mt-2"
                       >
                         LogOut
                       </button>
@@ -199,7 +232,7 @@ const NavBar = () => {
                     <div
                       tabIndex={0}
                       role="button"
-                      className="cursor-pointer m-1"
+                      className="cursor-pointer m-1 transform duration-600"
                     >
                       <FaRegUser className="size-8 rounded-full mr-2 hover:shadow-[0_0_20px_#00bf83b3]" />
                     </div>
@@ -237,7 +270,10 @@ const NavBar = () => {
             </>
           ) : (
             <>
-              <NavLink className="btn btn-outline btn-success" to="/login">
+              <NavLink
+                className="btn btn-outline transform duration-600"
+                to="/login"
+              >
                 Login
               </NavLink>
             </>
