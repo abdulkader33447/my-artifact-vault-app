@@ -24,7 +24,7 @@ const AddArtifact = () => {
 
     // send artifact to db
     //live server-https://a-kader-a11-server.vercel.app/
-    fetch("http://localhost:3000/artifact", {
+    fetch("https://a-kader-a11-server.vercel.app/artifact", {
       method: "POST",
       headers: {
         "content-type": "application/json",

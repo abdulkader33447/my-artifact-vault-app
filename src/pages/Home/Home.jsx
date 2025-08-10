@@ -77,7 +77,10 @@ const Home = () => {
         </div>
       </div>
       <div className="text-center mt-10">
-        <Link to="/allArtifacts" className="btn btn-outline btn-success transition duration-700 hover:text-white">
+        <Link
+          to="/allArtifacts"
+          className="btn btn-outline btn-success transition duration-700 hover:text-white"
+        >
           See All
         </Link>
       </div>
